@@ -294,3 +294,22 @@ teststr = 'aabbcc';
 m = p.match(teststr);
 print(m.group(1));
 print(re.sub(r'(aa)(bb)(cc)', r"\1dd", teststr));
+
+# file io
+foo = open("foo.txt", "w", newline="\n");
+print("Name of the file:", foo.name);
+foo.write("123\n");
+foo.write("abc\n");
+print("Openning mode: ", foo.mode);
+foo.close();
+print("Closed or not: ", foo.closed);
+foo = open("foo.txt", "r+", newline="\n");
+lines = foo.readlines();
+for line in lines:
+    if line.startswith("123"):
+        foo.write("1234\n");
+    else:
+        foo.write(line);
+else:
+    foo.write("end\n");
+foo.close();
