@@ -1,9 +1,12 @@
+import pdb;
 import math;
 import random;
 import string;
 import time;
 import calendar;
 import re;
+import os;
+
 #startup
 print("EXERCISE FOR: ", "startup");
 str = 'Hello World!';
@@ -296,14 +299,14 @@ print(m.group(1));
 print(re.sub(r'(aa)(bb)(cc)', r"\1dd", teststr));
 
 # file io
-foo = open("foo.txt", "w", newline="\n");
+foo = open("foo.txt", "w");
 print("Name of the file:", foo.name);
 foo.write("123\n");
 foo.write("abc\n");
 print("Openning mode: ", foo.mode);
 foo.close();
 print("Closed or not: ", foo.closed);
-foo = open("foo.txt", "r+", newline="\n");
+foo = open("foo.txt", "r+");
 lines = foo.readlines();
 for line in lines:
     if line.startswith("123"):
@@ -313,3 +316,6 @@ for line in lines:
 else:
     foo.write("end\n");
 foo.close();
+
+print(os.path.splitext('aaa.txt')[1]);
+
